@@ -1,5 +1,6 @@
 #include "Wallet.hpp"
 
+/* Paramterized constructor */
 Wallet::Wallet(const BitcoinExchange &db, std::string line) : m_bitcoinexchange(db)
 {
     size_t separatorPos = line.find(" | ");
@@ -11,6 +12,16 @@ Wallet::Wallet(const BitcoinExchange &db, std::string line) : m_bitcoinexchange(
 
     std::string floatPart = line.substr(separatorPos + 3);
     m_value = Value(floatPart);
+}
+
+/* Copy constructor */
+Wallet::Wallet(const Wallet &source) : m_bitcoinexchange(source.m_bitcoinexchange), m_date(source.m_date), m_value(source.m_value)
+{
+}
+
+/* Destructor */
+Wallet::~Wallet(void)
+{
 }
 
 void Wallet::putBtcInEur(void)

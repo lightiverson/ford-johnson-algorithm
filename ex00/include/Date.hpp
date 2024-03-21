@@ -25,8 +25,17 @@ private:
     int yearMonthDaySet(const std::string &date) const;
 
 public:
+    /* Default constructor */
     Date(void);
+    /* Parameterized constructor */
     Date(std::string &date);
+    /* Copy constructor */
+    Date(const Date &source);
+    /* Copy assignment operator overload */
+    Date &operator=(const Date &source);
+    /* Destructor */
+    ~Date(void);
+
     const std::string &getDate(void) const;
 };
 

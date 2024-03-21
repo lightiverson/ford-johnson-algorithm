@@ -11,8 +11,17 @@ private:
     float m_valueFloat{};
 
 public:
+    /* Default constructor */
     Value(void);
+    /* Parameterized constructor */
     Value(std::string &value);
+    /* Copy constructor */
+    Value(const Value &source);
+    /* Copy assignment operator overload */
+    Value &operator=(const Value &source);
+    /* Destructor */
+    ~Value(void);
+
     float getValue(void);
 };
 

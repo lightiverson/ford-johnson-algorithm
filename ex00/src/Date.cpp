@@ -1,9 +1,11 @@
 #include "Date.hpp"
 
+/* Default constructor */
 Date::Date(void)
 {
 }
 
+/* Parameterized constructor */
 Date::Date(std::string &date) : m_date(date)
 {
     if (!isValidDateFormat(m_date))
@@ -11,6 +13,30 @@ Date::Date(std::string &date) : m_date(date)
 
     if (!isValidDateRange(m_date))
         throw std::runtime_error("Error: bad input => |" + m_date + "|");
+}
+
+/* Copy constructor */
+Date::Date(const Date &source) : m_date(source.m_date), m_year(source.m_year), m_month(source.m_month), m_day(source.m_day)
+{
+}
+
+/* Copy assignment operator overload */
+Date &Date::operator=(const Date &source)
+{
+    if (this == &source)
+        return *this;
+
+    m_date = source.m_date;
+    m_year = source.m_year;
+    m_month = source.m_month;
+    m_day = source.m_day;
+
+    return *this;
+}
+
+/* Destructor */
+Date::~Date(void)
+{
 }
 
 bool Date::isValidDateFormat(const std::string &date) const
