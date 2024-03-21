@@ -1,4 +1,3 @@
-VPATH		:= src:
 NAME		:= RPN
 CXXFLAGS	?= -Wall -Wextra -Werror -std=c++20
 LDFLAGS		?=
