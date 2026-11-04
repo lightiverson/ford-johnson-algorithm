@@ -1,11 +1,27 @@
-# Ford–Johnson algorithm
+# Merge-insertion sort (Ford–Johnson algorithm)
 
-* What’s an in place sorting algorithm?
-    * In computer science, an in-place algorithm is an algorithm that operates directly on the input data structure without requiring extra space proportional to the input size.
-* What are comparison sorts?
-    * A comparison sort is a type of sorting algorithm that only reads the list elements through a single abstract comparison operation (often a "less than or equal to" operator or a three-way comparison) that determines which of two elements should occur first in the final sorted list.
-* Do we use Jacobshthall to determine which number to insert?
-    * You use Jacobsthall to determine which index of the PEND array to insert.
-* How do you determine the insertion area? Is it only three for Jacobsthall numbers with an N of 8, because of 2log8 = 3?
-* What about the non Jacobsthall numbers, is the insertion area everything up to its own label?
-    * For non Jacobsthall numbers the insertion area is everything up to its own index.
+Write a program to sort a positive integer sequence. Your program must use a merge-insert algorithm also known as the Ford-Johnson algorithm.
+
+While the better known algorithms are designed to be fast or memory efficient, Merge-insertion sort is concerned with minimizing comparisons. A comparison is something as simple as checking if `a < b`.
+
+The way the algorithm manages this is pretty interesting. One of the steps of the algorithm is to use binary search to determine the position at which an element should be inserted in a sub array (created in another step of the algorithm). Specifically, it uses binary search on sub arrays with a length of one less than a power of two.
+
+What's cool about this is that binary search on arrays of these specific sizes is most efficient (from the point of view of worst case analysis).
+
+For example, looking for an element in an array with a length of 8 (2^3) requires the same number of comparisons as looking in an array with a length of 15 ((2^4) - 1).
+
+#### Grade: 100/100
+
+## Resources
+
+https://github.com/decidedlyso/merge-insertion-sort
+
+https://github.com/PunkChameleon/ford-johnson-merge-insertion-sort
+
+https://codereview.stackexchange.com/questions/116367/ford-johnson-merge-insertion-sort
+
+https://stackoverflow.com/questions/27751132/how-does-merge-insertion-sort-work
+
+https://warwick.ac.uk/fac/sci/dcs/teaching/material-archive/cs341/fj.pdf
+
+https://oeis.org/A001768
